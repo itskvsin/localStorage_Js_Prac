@@ -1,11 +1,25 @@
-// const userArray = ["Kevin" , 18]
+const ul = document.querySelector("ul")
+const input = document.getElementById("item")
 
-// localStorage.setItem("user" , JSON.stringify(userArray))
+let itemsArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [] ;
 
-// const showUser = JSON.parse(localStorage.getItem("user"))
+itemsArray.forEach(addTask)
 
-// console.log(showUser)
+function addTask(text){
+    const li = document.createElement("li")
+    li.textContent = text
+    ul.appendChild(li)
+}
 
-// localStorage.removeItem("user")
+function add(){
+    itemsArray.push(input.value)
+    localStorage.setItem("items" , JSON.stringify(itemsArray))
+    addTask(input.value)
+    input.value = " "
+}
 
-// localStorage.clear()
+function remove(){
+    localStorage.clear()
+    ul.innerHTML = ""
+    itemsArray = []
+}
