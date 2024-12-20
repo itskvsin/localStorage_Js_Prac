@@ -10,15 +10,25 @@
 <body>
 
     <div class="main bg-gray-500 h-screen w-screen flex flex-col items-center justify-start p-20 ">
-        <div class="inputBox">
-            <input type="text" name="item" id="item" placeholder="Enter your Task:  " class="bg-gray-600 px-10 py-6 rounded outline-none text-2xl text-semibold">
+        <div class="form mb-8">
+            <form action="" class="flex gap-10">
+                <input type="text" name="product" id="product" class="py-4 px-8 text-2xl bg-gray-600 rounded m-4 outline-none" placeholder="Name of the Product: ">
+                <input type="text" name="price" id="price" class="py-4 px-8 text-2xl bg-gray-600 rounded m-4 outline-none " placeholder="Price of the product: ">
+                <button class="bg-emerald-700 m-4 p-4 text-2xl rounded">Enter</button>
+            </form>
         </div>
-        <div class="btn flex items-center gap-24 p-4">
-            <button onclick="add()" class="bg-gray-800 p-4 rounded">Add Item</button>
-            <button onclick="remove()" class="bg-gray-800 p-4 rounded">Clear Items</button>
-        </div>
-        <div class="list bg-gray-400 p-6 w-3/4">
-            <ul class="to-do-list underline text-2xl text-semibold p-6 bg-blue-300 rounded text-black m-4"></ul>
+        <div class="list bg-gray-400 p-6 w-3/4" id="list">
+            <!-- <table>
+                <thead>
+                    <th>item name </th>
+                    <th>item price</th>
+                </thead>
+                <tbody>
+                    <td>tissue</td>
+                    <td>900</td>
+                </tbody>
+            </table> -->
+            
         </div>
     </div>
 
