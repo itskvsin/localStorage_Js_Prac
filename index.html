@@ -8,7 +8,20 @@
     <title>Local Storage Pract | kevin</title>
 </head>
 <body>
-    <h1">This file will be used to practice of Local Storage</h1>
+
+    <div class="main bg-gray-500 h-screen w-screen flex flex-col items-center justify-start p-20 ">
+        <div class="inputBox">
+            <input type="text" name="item" id="item" placeholder="Enter your Task:  " class="bg-gray-600 px-10 py-6 rounded outline-none text-2xl text-semibold">
+        </div>
+        <div class="btn flex items-center gap-24 p-4">
+            <button onclick="add()" class="bg-gray-800 p-4 rounded">Add Item</button>
+            <button onclick="clear()" class="bg-gray-800 p-4 rounded">Clear Items</button>
+        </div>
+        <div class="list bg-gray-400 p-6 w-3/4">
+            <ul class="to-do-list underline text-2xl text-semibold p-6 bg-blue-300 rounded text-black m-4"></ul>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
