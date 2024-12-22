@@ -41,14 +41,75 @@ let displayData = () => {
   let finalData = ``;
 
   userData.forEach((elem, i) => {
-    finalData += `<div class="show bg-sky-800 rounded p-4 mb-2 flex justify-around">
-      <p class="p-2 text-2xl w-1/4 flex justify-start">${elem.productName}</p>
-      <p class="p-2 text-2xl w-1/4 flex justify-start">${elem.productPrice}</p>
+    finalData += `<div class="show bg-sky-800 rounded p-4 mb-2 flex justify-between">
+      <p class="name-${i} p-2 text-2xl w-1/4 flex justify-center">${elem.productName}</p>
+      <p class="price-${i} p-2 text-2xl w-1/4 flex justify-center">${elem.productPrice}</p>
       <button onclick="remove(this , ${i})"><i class="fa-solid fa-trash-can text-xl"></i></button>
+      <button onclick="updateForm(${i})"><i class="fa-solid fa-pen-fancy"></i></button>
       </div>`;
   });
 
   show.innerHTML = finalData;
+};
+
+let updateForm = (index) => {
+  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+
+  const product = userData[index];
+
+  let update = `<div class="bg-gray-700 p-4 rounded mb-4">
+      <input
+        type="text"
+        id="updateName"
+        value="${product.productName}"
+        placeholder="Enter new product name"
+        class="w-1/3 p-2 rounded bg-gray-800 border border-gray-700 mr-2"
+      />
+      <input
+        type="number"
+        id="updatePrice"
+        value="${product.productPrice}"
+        placeholder="Enter new price"
+        class="w-1/3 p-2 rounded bg-gray-800 border border-gray-700 mr-2"
+      />
+      <button onclick="update(${index})" class="bg-green-500 px-4 py-2 rounded">Save</button>
+      <button onclick="cancelUpdate()" class="bg-red-500 p-2 rounded">Cancel</button>
+    </div>`;
+
+  show.innerHTML = update + show.innerHTML;
+};
+
+let update = (index) => {
+  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+
+  const nameInput = document.getElementById("updateName");
+  const priceInput = document.getElementById("updatePrice");
+
+  if (!nameInput || !priceInput) {
+    alert("Enable to find the input fields");
+    return;
+  }
+
+  let updatedName = nameInput.value;
+  let updatedPrice = priceInput.value;
+
+  if (updatedName === "" || updatedPrice === "") {
+    alert("Please enter valid details");
+    return;
+  }
+
+  userData[index] = { productName: updatedName, productPrice: updatedPrice };
+
+  localStorage.setItem("userDetails", JSON.stringify(userData));
+
+  alert("User updated successfully");
+
+  displayData();
+  calTotal();
+};
+
+let cancelUpdate = () => {
+  displayData();
 };
 
 let remove = (button, index) => {
@@ -64,6 +125,7 @@ let remove = (button, index) => {
     removeProduct.remove();
     alert("Item Deleted");
   }
+  calTotal();
 };
 
 let calTotal = () => {
