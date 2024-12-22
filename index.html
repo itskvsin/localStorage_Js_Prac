@@ -1,34 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Local Storage Pract | kevin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div
+      class="main bg-slate-900 h-screen w-screen flex flex-col items-center justify-start p-12"
+    >
+      <div class="form mb-6">
+        <form class="flex gap-10">
+          <input
+            type="text"
+            name="product"
+            id="product"
+            class="py-4 px-8 text-2xl bg-gray-700/20 rounded m-4 outline-none border-slate-950 border-r-2 border-b-2"
+            placeholder="Name of the Product: "
+          />
+          <input
+            type="text"
+            name="price"
+            id="price"
+            class="py-4 px-8 text-2xl bg-gray-700/20 rounded m-4 outline-none border-slate-950 border-r-2 border-b-2"
+            placeholder="Price of the product: "
+          />
+          <button
+            class="bg-sky-700 m-4 p-4 text-2xl rounded border-slate-950 border-r-2 border-b-2"
+          >
+            Enter
+          </button>
+        </form>
+      </div>
+      <div
+        class="details bg-sky-900 rounded p-4 mb-4 flex justify-around gap-20 text-2xl w-9/12"
+      >
+        <p>Product Name</p>
+        <p>Product Price</p>
+        <p></p>
+      </div>
+      <div class="list bg-sky-950 p-6 w-3/4 rounded" id="list"></div>
 
-    <div class="main bg-slate-900 h-screen w-screen flex flex-col items-center justify-start p-12 ">
-        <div class="form mb-6">
-            <form class="flex gap-10">
-                <input type="text" name="product" id="product" class="py-4 px-8 text-2xl bg-gray-700/20 rounded m-4 outline-none border-slate-950 border-r-2 border-b-2" placeholder="Name of the Product: ">
-                <input type="text" name="price" id="price" class="py-4 px-8 text-2xl bg-gray-700/20 rounded m-4 outline-none border-slate-950 border-r-2 border-b-2" placeholder="Price of the product: ">
-                <button class="bg-sky-700 m-4 p-4 text-2xl rounded border-slate-950 border-r-2 border-b-2">Enter</button>
-            </form>
-        </div>
-        <div class="details bg-sky-900 rounded p-4 mb-4 flex justify-around gap-20 text-2xl w-9/12">
-            <p>Product Name</p>
-            <p>Product Price</p>
-            <p></p>
-        </div>
-        <div class="list bg-sky-950 p-6 w-3/4 rounded" id="list"> </div>
-
-        <div class="total mt-2 flex justify-around w-full font-semibold">
-        </div>
+      <div class="total mt-2 flex justify-around w-full font-semibold"></div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -56,7 +56,7 @@ let remove = (button, index) => {
 
   const userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
 
-  userData.splice(index , 1);
+  userData.splice(index, 1);
 
   localStorage.setItem("userDetails", JSON.stringify(userData));
 
@@ -77,7 +77,6 @@ let calTotal = () => {
 
   showTotal.innerHTML = `<p class="text-2xl">Total :</p> 
   <p class="price text-2xl">${total}</p>`;
-
 };
 
 displayData();
