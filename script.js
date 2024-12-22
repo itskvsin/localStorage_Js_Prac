@@ -1,71 +1,58 @@
-// const ul = document.querySelector("ul")
-// const input = document.getElementById("item")
-
-
-// let itemsArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : { } ;
-
-
-// function add(){
-//     itemsArray.push({
-
-//     })
-//     localStorage.setItem("items" , JSON.stringify(itemsArray))
-//     addTask(input.value)
-//     input.value = " "
-// }
-
-// function remove(){
-//     localStorage.clear()
-//     ul.innerHTML = ""
-//     itemsArray = []
-// }
-// function addTask(text){
-//     const li = document.createElement("li")
-//     li.textContent = text
-//     ul.appendChild(li)
-// }
-
-// itemsArray.forEach(addTask)
-
-
-let form = document.querySelector("form")
-let show = document.getElementById("list")
+let form = document.querySelector("form");
+let show = document.getElementById("list");
 
 form.addEventListener("submit", (elem) => {
-    let productName = elem.target.product.value
-    let productPrice = elem.target.price.value
+  let productName = elem.target.product.value;
+  let productPrice = elem.target.price.value;
 
-    let userData = JSON.parse(localStorage.getItem("userDetails")) ?? []
+  if (productName == "" && productPrice == "") {
+    alert("PLease Enter the product name or price");
+    return;
+  }
 
-    userData.push({
-        "productName": productName,
-        "productPrice": productPrice
-    })
+  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
 
-    console.log(userData)
-    localStorage.setItem("userDetails", JSON.stringify(userData))
-    elem.target.product.value = " ";
-    elem.target.price.value = " ";
-    window.location.reload();
-    elem.preventDefault()
+  userData.push({
+    productName: productName,
+    productPrice: productPrice,
+  });
 
-})
+  localStorage.setItem("userDetails", JSON.stringify(userData));
 
+  elem.target.product.value = " ";
+  elem.target.price.value = " ";
+  window.location.reload();
+  elem.preventDefault();
+});
 
 let displayData = () => {
+  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+  let finalData = ``;
 
-    let userData = JSON.parse(localStorage.getItem("userDetails")) ?? []
-    let finalData = ``
+  userData.forEach((elem, i) => {
+    finalData += `<div class="show bg-blue-600 rounded p-4 mb-2 flex justify-around">
+      <p class="p-2 text-xl w-1/4 flex justify-center">${elem.productName}</p>
+      <p class="p-2 text-xl w-1/4 flex justify-start">${elem.productPrice}</p>
+      <button onclick="remove(this , ${i})"><i class="fa-solid fa-trash-can"></i></button>
+      </div>`;
+  });
 
-    userData.forEach((elem, i) => {
-        finalData += `<div class="bg-blue-500 rounded p-4 mb-4">
-                <p class="p-2 text-xl">${elem.productName}</p>
-                <p class="p-2 text-xl">${elem.productPrice}</p>
-            </div>`
-    });
+  show.innerHTML = finalData;
+};
 
-    show.innerHTML = finalData
-    // console.log(finalData)
-}
+let remove = (button, index) => {
+  const removeProduct = button.closest(".show");
 
-displayData()
+  const userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+
+  userData.splice(index);
+
+  localStorage.setItem("userDetails", JSON.stringify(userData));
+
+  if (removeProduct) {
+    removeProduct.remove();
+    alert("Item Deleted");
+  }
+};
+
+displayData();
