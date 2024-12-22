@@ -63,16 +63,16 @@ let updateForm = (index) => {
         id="updateName"
         value="${product.productName}"
         placeholder="Enter new product name"
-        class="w-1/3 p-2 rounded bg-gray-800 border border-gray-700 mr-2"
+        class="w-1/3 p-2 rounded bg-cyan-950 border border-gray-700 mr-2"
       />
       <input
-        type="number"
+        type="text"
         id="updatePrice"
         value="${product.productPrice}"
         placeholder="Enter new price"
-        class="w-1/3 p-2 rounded bg-gray-800 border border-gray-700 mr-2"
+        class="w-1/3 p-2 rounded bg-cyan-950 border border-gray-500 mr-2 outline-none"
       />
-      <button onclick="update(${index})" class="bg-green-500 px-4 py-2 rounded">Save</button>
+      <button onclick="update(${index})" class="bg-gray-800 px-4 py-2 rounded">Save</button>
       <button onclick="cancelUpdate()" class="bg-red-500 p-2 rounded">Cancel</button>
     </div>`;
 
@@ -101,8 +101,6 @@ let update = (index) => {
   userData[index] = { productName: updatedName, productPrice: updatedPrice };
 
   localStorage.setItem("userDetails", JSON.stringify(userData));
-
-  alert("User updated successfully");
 
   displayData();
   calTotal();
