@@ -64,26 +64,27 @@ let updateForm = (index) => {
 
   const product = userData[index];
 
-  let update = `<div class="bg-gray-700 p-4 rounded mb-4">
+  let update = `<div class="bg-gray-700 p-4 rounded mb-4 responsiveBox">
       <input
         type="text"
         id="updateName"
         value="${product.productName}"
         placeholder="Enter new product name"
-        class="w-1/3 p-2 rounded bg-cyan-950 border border-gray-700 mr-2"
+        class="w-1/3 p-2 rounded bg-cyan-950 border border-gray-700 mr-2 resDirection"
       />
       <input
         type="text"
         id="updatePrice"
         value="${product.productPrice}"
         placeholder="Enter new price"
-        class="w-1/3 p-2 rounded bg-cyan-950 border border-gray-500 mr-2 outline-none"
+        class="w-1/3 p-2 rounded bg-cyan-950 border border-gray-500 mr-2 outline-none resDirection"
       />
       <button onclick="update(${index})" class="bg-gray-800 px-4 py-2 rounded">Save</button>
       <button onclick="cancelUpdate()" class="bg-red-500 p-2 rounded">Cancel</button>
     </div>`;
 
-  show.innerHTML = update + show.innerHTML;
+    const itemToUpdate = document.querySelector(`.name-${index}`).parentElement;
+    itemToUpdate.innerHTML = update;
 };
 
 let update = (index) => {
