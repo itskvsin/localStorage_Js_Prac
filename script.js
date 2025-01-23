@@ -70,7 +70,7 @@ let updateForm = (index) => {
         id="updateName"
         value="${product.productName}"
         placeholder="Enter new product name"
-        class="w-1/3 p-2 rounded bg-cyan-950 border border-gray-700 mr-2"
+        class="p-2 rounded bg-cyan-950 border border-gray-700 mr-2 outline-none"
         id="resDirection"
       />
       <input
@@ -78,7 +78,7 @@ let updateForm = (index) => {
         id="updatePrice"
         value="${product.productPrice}"
         placeholder="Enter new price"
-        class="w-1/3 p-2 rounded bg-cyan-950 border border-gray-500 mr-2 outline-none"
+        class="p-2 rounded bg-cyan-950 border border-gray-500 mr-2 outline-none"
         id="resDirection1"
       />
       <button onclick="update(${index})" class="bg-gray-800 px-4 py-2 rounded">Save</button>
