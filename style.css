@@ -56,10 +56,10 @@ body {
     flex-direction: column;
     width: 100%;
   }
-  .resDirection{
+  #resDirection{
     width: 100%;
   }
-  .resDirection1{
+  #resDirection1{
     width: 100%;
   }
   .show{
