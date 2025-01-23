@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <title>Login Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-purple-500 flex items-center justify-center min-h-screen">
+
+  <form class="w-full max-w-sm bg-violet-500 shadow-md rounded-lg p-8" id="loginForm" method="post">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Login</h2>
+
+    <!-- Username Field -->
+    <div class="mb-4">
+      <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+      <input 
+        type="text" 
+        id="username" 
+        name="username" 
+        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-700" 
+        placeholder="Enter your username"
+        required>
+    </div>
+
+    <!-- Password Field -->
+    <div class="mb-4">
+      <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+      <input 
+        type="password" 
+        id="password" 
+        name="password" 
+        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-700" 
+        placeholder="Enter your password"
+        required>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button 
+        type="submit" 
+        class="w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+        Login
+      </button>
+    </div>
+
+    <!-- Register Button -->
+    <div class="text-center mt-4">
+      <button 
+        type="button" 
+        onclick="window.location.href='register.html'" 
+        class="w-full bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg shadow hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400">
+        Register
+      </button>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      let username = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+
+      let user = localStorage.getItem(username);
+
+      if (user) {
+        let parsedUser = JSON.parse(user);
+        if (parsedUser.password === password) {
+          localStorage.setItem("user", JSON.stringify(parsedUser));
+          window.location.href = "index.html";
+        } else {
+          alert("Incorrect Password");
+        }
+      } else {
+        alert("User Not Found");
+      }
+    });
+  </script>
+</body>
+</html>
