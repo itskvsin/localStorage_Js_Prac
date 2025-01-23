@@ -56,12 +56,6 @@ body {
     flex-direction: column;
     width: 100%;
   }
-  input{
-    width: 99%;
-  }
-  input{
-    width: 99%;
-  }
   .show{
     word-wrap: break-word;
   }
