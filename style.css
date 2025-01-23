@@ -56,10 +56,10 @@ body {
     flex-direction: column;
     width: 100%;
   }
-  #resDirection{
+  #updateName{
     width: 99%;
   }
-  #resDirection1{
+  #updatePrice{
     width: 99%;
   }
   .show{
