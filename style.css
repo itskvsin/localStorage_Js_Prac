@@ -58,9 +58,5 @@ body {
   .show{
     word-wrap: break-word;
   }
-  .total{
-    position: absolute;
-    top:35%
-  }
 }
 
