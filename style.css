@@ -18,3 +18,30 @@ body {
   overflow-y: scroll;
   scroll-behavior: auto;
 }
+
+@media screen and (max-width:952px){
+  .main{
+    padding: 8px;
+  }
+  #body{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 90vw;
+  }
+  .details{
+    width: 90vw;
+    font-size: large;
+    display: flex;
+    align-items: center;
+    justify-items: start;
+    padding-left: 4px;
+  }
+  .list{
+    width: 96vw;
+    height: 50vh;
+    padding: 12px;
+    font-size:20px;
+  }
+}
+
