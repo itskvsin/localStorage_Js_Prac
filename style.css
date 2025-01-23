@@ -56,10 +56,10 @@ body {
     flex-direction: column;
     width: 100%;
   }
-  #updateName{
+  input{
     width: 99%;
   }
-  #updatePrice{
+  input{
     width: 99%;
   }
   .show{
