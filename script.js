@@ -1,3 +1,10 @@
+let user = JSON.parse(localStorage.getItem("user"))
+
+if (!user) {
+  alert("You must login or register in order to access this page");
+  window.location.href = "register.html";
+}
+
 let form = document.querySelector("form");
 let show = document.getElementById("list");
 
