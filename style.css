@@ -14,6 +14,10 @@ body {
   width: 100vw;
 }
 
+.main{
+  height: 100vh;
+}
+
 .list {
   align-items: center;
   min-height: 50vh;
@@ -33,7 +37,7 @@ body {
     width: 99vw;
     font-size: medium;
   }
-  .details{
+  #details{
     width: 100%;
     font-size: large;
     display: flex;
@@ -41,7 +45,7 @@ body {
     justify-items: start;
     padding-left: 4px;
   }
-  .list{
+  #list{
     width: 100%;
     height: 40vh;
     padding: 8px;

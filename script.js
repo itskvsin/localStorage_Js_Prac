@@ -35,12 +35,12 @@ form.addEventListener("submit", (elem) => {
     });
 
     localStorage.setItem("userDetails", JSON.stringify(userData));
+    displayData()
+    calTotal()
   }
 
-  elem.target.product.value = " ";
-  elem.target.price.value = " ";
-  window.location.reload();
-  elem.preventDefault();
+  elem.target.product.value = "";
+  elem.target.price.value = "";
 });
 
 let displayData = () => {
