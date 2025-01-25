@@ -8,15 +8,15 @@
   width: 1px;
 }
 body {
-  background-color: black;
-  color: whitesmoke;
+  color: white;
   height: 100vh;
   width: 100vw;
 }
 
 .main{
   height: 100vh;
-}
+  background: rgb(255,255,255);
+  background: linear-gradient(153deg, rgba(255,255,255,1) 44%, rgba(176,172,172,1) 100%);}
 
 .list {
   align-items: center;
