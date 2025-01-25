@@ -48,7 +48,7 @@ let displayData = () => {
   let finalData = ``;
 
   userData.forEach((elem, i) => {
-    finalData += `<div class="show bg-sky-800 rounded p-4 mb-2 flex justify-between">
+    finalData += `<div class="show bg-gray-800 rounded p-4 mb-2 flex justify-between">
       <p class="name-${i} p-2 text-2xl w-1/4 flex justify-center">${elem.productName}</p>
       <p class="price-${i} p-2 text-2xl w-1/4 flex justify-center">${elem.productPrice}</p>
       <button onclick="remove(this , ${i})"><i class="fa-solid fa-trash-can text-xl"></i></button>
@@ -143,8 +143,8 @@ let calTotal = () => {
     total += parseInt(elem.productPrice);
   });
 
-  showTotal.innerHTML = `<p class="text-2xl">Total :</p> 
-  <p class="price text-2xl">${total}</p>`;
+  showTotal.innerHTML = `<p class="text-2xl text-gray-700">Total :</p> 
+  <p class="price text-2xl text-gray-700 ">${total}</p>`;
 };
 
 displayData();
