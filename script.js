@@ -2,13 +2,12 @@ let user = JSON.parse(localStorage.getItem("user"))
 let toast = document.getElementById("toast")
 
 if (!user) {
-  document.getElementById("show-btn").addEventListener("click", () => {
-    toast.classList.add("toast-active")
+  toast.classList.add("toast-active")
 
-    setTimeout(() => {
-      toast.classList.remove("toast-active")
-    }, 8000)
-  })
+  setTimeout(() => {
+    toast.classList.remove("toast-active")
+  }, 8000)
+  
   document.getElementById("cls-btn").addEventListener("click", () => {
     toast.classList.remove("toast-active")
   })
