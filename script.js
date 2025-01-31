@@ -6,12 +6,12 @@ if (!user) {
 
   setTimeout(() => {
     toast.classList.remove("toast-active")
-  }, 8000)
+    window.location.href = "register.html";
+  }, 4000)
   
   document.getElementById("cls-btn").addEventListener("click", () => {
     toast.classList.remove("toast-active")
   })
-  window.location.href = "register.html";
 }
 
 let form = document.querySelector("form");
