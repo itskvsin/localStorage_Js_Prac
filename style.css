@@ -11,6 +11,7 @@ body {
   color: white;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 .main{
@@ -61,3 +62,46 @@ body {
   }
 }
 
+.toast{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  border-radius: 14px;
+  width: 350px;
+  height: 60px;
+  padding: 1rem 1rem;
+  gap:20px;
+  font-size: large;
+  position: absolute;
+  top: 50px;
+  right: -500px;
+  border-bottom: 4px solid rgb(43, 0, 255);
+  border-left: 4px solid rgb(43, 0, 255);
+  opacity: 0;
+  transition: all 0.22s ease-out;
+}
+
+.toast-active {
+  right:50px;
+  opacity: 100%;
+}
+
+
+.cls-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.show-btn{
+  background-color: rgb(11, 30, 123);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  margin: 40px;
+  border-radius: 14px;
+}

@@ -1,7 +1,17 @@
 let user = JSON.parse(localStorage.getItem("user"))
+let toast = document.getElementById("toast")
 
 if (!user) {
-  alert("You must login or register in order to access this page");
+  document.getElementById("show-btn").addEventListener("click", () => {
+    toast.classList.add("toast-active")
+
+    setTimeout(() => {
+      toast.classList.remove("toast-active")
+    }, 8000)
+  })
+  document.getElementById("cls-btn").addEventListener("click", () => {
+    toast.classList.remove("toast-active")
+  })
   window.location.href = "register.html";
 }
 
@@ -83,8 +93,8 @@ let updateForm = (index) => {
       <button onclick="cancelUpdate()" class="bg-red-500 p-2 rounded">Cancel</button>
     </div>`;
 
-    const itemToUpdate = document.querySelector(`.name-${index}`).parentElement;
-    itemToUpdate.innerHTML = update;
+  const itemToUpdate = document.querySelector(`.name-${index}`).parentElement;
+  itemToUpdate.innerHTML = update;
 };
 
 let update = (index) => {
