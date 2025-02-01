@@ -7,6 +7,11 @@
 ::-webkit-scrollbar {
   width: 1px;
 }
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 body {
   color: white;
   height: 100vh;
@@ -17,7 +22,13 @@ body {
 .main{
   height: 100vh;
   background: rgb(255,255,255);
-  background: linear-gradient(153deg, rgba(255,255,255,1) 44%, rgba(176,172,172,1) 100%);}
+  background: linear-gradient(153deg, rgb(222, 222, 222) 44%, rgba(176,172,172,1) 100%);
+}
+
+input:focus{
+  scale: 1.04;
+  transition: all 0.25s;
+}
 
 .list {
   align-items: center;
@@ -25,6 +36,26 @@ body {
   height: 50vh;
   overflow-y: scroll;
   scroll-behavior: auto;
+}
+
+.btn:hover{
+  scale: 1.1;
+  transition: all 0.44s;
+}
+
+.btn:active{
+  scale: 0.9;
+  transition: all 0.20s;
+}
+
+.reset:hover{
+  scale: 1.1;
+  transition: all 0.10s;
+}
+
+.reset:active{
+  scale: 0.9;
+  transition: all 0.20s;
 }
 
 @media screen and (max-width:952px){
@@ -98,12 +129,22 @@ body {
   cursor: pointer;
 }
 
-.show-btn{
-  background-color: rgb(11, 30, 123);
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  margin: 40px;
-  border-radius: 14px;
+.toast-enter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  position: absolute;
+  top: -1px;
+  right:48%;
+  gap: 14px;
+  padding: 13px 10px;
+  color:blanchedalmond;
+  opacity: 0;
+  transition: all 0.45s ease-in;
+}
+
+.toast-enter-active{
+  opacity: 1;
+  top: 20px;
 }

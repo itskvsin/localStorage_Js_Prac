@@ -19,8 +19,8 @@
     <div
       class="main h-full w-screen flex flex-col items-center justify-start p-4"
     >
-      <div class="form">
-        <form id="body" class="flex gap-8">
+      <div class="form text-black">
+        <form id="body" class="flex gap-4">
           <input
             type="text"
             name="product"
@@ -29,14 +29,14 @@
             placeholder="Name of the Product: "
           />
           <input
-            type="text"
+            type="number"
             name="price"
             id="price"
             class="py-4 px-6 text-xl bg-gray-500/20 rounded-2xl m-4 outline-none border-slate-950 border-r-2 border-b-2"
             placeholder="Price of the product: "
           />
           <button
-            class="bg-slate-700 m-4 p-4 text-xl rounded-xl   border-slate-950 border-r-2 border-b-2"
+            class="btn bg-slate-700 m-4 p-3 text-xl text-white rounded-xl border-slate-950 border-r-2 border-b-2"
           >
             Enter
           </button>
@@ -54,12 +54,22 @@
         <p></p>
       </div>
       <div class="list bg-gray-100 p-6 rounded-b-3xl w-2/4" id="list"></div>
+
+      <div class="reset bg-gray-800 mt-8 py-3 px-7 rounded-xl text-xl ">
+        <button type="submit" onclick="reset()">Reset</button>
+      </div>
+
     </div>
 
     <div class="toast" id="toast">
       <i class="fa-regular fa-circle-question"></i>
       <p>Please Register Before Entering</p>
-      <button class="cls-btn" id="cls-btn">&#10005;</button>
+      <button class="cls-btn" id="cls-btn">&#10008;</button>
+    </div>
+
+    <div class="toast-enter rounded-xl" id="toast-enter">
+      <i class="fa-regular fa-circle-question"></i>
+      <p>Enter Product / Price</p>
     </div>
 
     <script src="script.js"></script>

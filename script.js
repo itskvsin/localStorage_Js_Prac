@@ -1,12 +1,22 @@
 let user = JSON.parse(localStorage.getItem("user"))
 let toast = document.getElementById("toast")
+let toastEnterData = document.getElementById("toast-enter")
+
+function addProdPrice(){
+  toastEnterData.classList.add("toast-enter-active")
+
+  setTimeout(() => {
+    toastEnterData.classList.remove("toast-enter-active")
+  },3000)
+
+}
 
 if (!user) {
   toast.classList.add("toast-active")
 
   setTimeout(() => {
     toast.classList.remove("toast-active")
-    // window.location.href = "register.html";
+    window.location.href = "register.html";
   }, 4000)
   
   document.getElementById("cls-btn").addEventListener("click", () => {
@@ -18,15 +28,16 @@ let form = document.querySelector("form");
 let show = document.getElementById("list");
 
 form.addEventListener("submit", (elem) => {
+  elem.preventDefault()
   let productName = elem.target.product.value;
   let productPrice = elem.target.price.value;
   let checkStatus = 0;
 
-  if (productName == "" && productPrice == "") {
-    alert("PLease Enter the product name or price");
+  if (productName === "" && productPrice === "") {
+    addProdPrice()
     return;
   }
-
+  
   let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
   for (let check of userData) {
     if (check.productName == productName) {
@@ -155,6 +166,12 @@ let calTotal = () => {
   showTotal.innerHTML = `<p class="text-2xl text-gray-700">Total :</p> 
   <p class="price text-2xl text-gray-700 ">${total}</p>`;
 };
+
+function reset(){
+  localStorage.removeItem("userDetails")
+  displayData()
+  calTotal()
+}
 
 displayData();
 calTotal();
