@@ -76,12 +76,11 @@ body {
   font-size: large;
   position: absolute;
   top: 50px;
-  right: -500px;
+  right: -1px;
   border-bottom: 4px solid rgb(43, 0, 255);
   border-left: 4px solid rgb(43, 0, 255);
   opacity: 0;
-  transition: all 2s ease-out;
-    /* animation: borderAni 3s ease-in; */
+  transition: all 0.75s ease-in-out;
 }
 
 /* Add Animations */
