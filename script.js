@@ -33,7 +33,7 @@ form.addEventListener("submit", (elem) => {
   let productPrice = elem.target.price.value;
   let checkStatus = 0;
 
-  if (productName === "" && productPrice === "") {
+  if (productName === "" || productPrice === "") {
     addProdPrice()
     return;
   }
