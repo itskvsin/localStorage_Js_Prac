@@ -80,8 +80,11 @@ body {
   border-bottom: 4px solid rgb(43, 0, 255);
   border-left: 4px solid rgb(43, 0, 255);
   opacity: 0;
-  transition: all 0.22s ease-out;
+  transition: all 2s ease-out;
+    /* animation: borderAni 3s ease-in; */
 }
+
+/* Add Animations */
 
 .toast-active {
   right:50px;

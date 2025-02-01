@@ -1,48 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Local Storage Pract | kevin</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
-  <title>Local Storage Pract | kevin</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-<body>
-  <div class="main  h-full w-screen flex flex-col items-center justify-start p-4">
-    <div class="form">
-      <form id="body" class="flex gap-8">
-        <input type="text" name="product" id="product"
-          class="py-4 px-8 text-2xl bg-gray-500/20 rounded m-4 outline-none border-slate-950 border-r-2 border-b-2"
-          placeholder="Name of the Product: " />
-        <input type="text" name="price" id="price"
-          class="py-4 px-8 text-2xl bg-gray-500/20 rounded m-4 outline-none border-slate-950 border-r-2 border-b-2"
-          placeholder="Price of the product: " />
-        <button class="bg-slate-700 m-4 p-4 text-2xl rounded border-slate-950 border-r-2 border-b-2">
-          Enter
-        </button>
-      </form>
+  <body>
+    <div
+      class="main h-full w-screen flex flex-col items-center justify-start p-4"
+    >
+      <div class="form">
+        <form id="body" class="flex gap-8">
+          <input
+            type="text"
+            name="product"
+            id="product"
+            class="py-4 px-6 text-xl bg-gray-500/20 rounded-2xl m-4 outline-none border-slate-950 border-r-2 border-b-2"
+            placeholder="Name of the Product: "
+          />
+          <input
+            type="text"
+            name="price"
+            id="price"
+            class="py-4 px-6 text-xl bg-gray-500/20 rounded-2xl m-4 outline-none border-slate-950 border-r-2 border-b-2"
+            placeholder="Price of the product: "
+          />
+          <button
+            class="bg-slate-700 m-4 p-4 text-xl rounded-xl   border-slate-950 border-r-2 border-b-2"
+          >
+            Enter
+          </button>
+        </form>
+      </div>
+      <div
+        class="total mb-2 text-gray-600 text-xl flex justify-around w-3/4 font-semibold"
+      ></div>
+      <div
+        class="bg-gray-100 text-gray-600 p-4 flex justify-around text-2xl w-2/4 rounded-t-3xl"
+        id="details"
+      >
+        <p>Product Name</p>
+        <p>Product Price</p>
+        <p></p>
+      </div>
+      <div class="list bg-gray-100 p-6 rounded-b-3xl w-2/4" id="list"></div>
     </div>
-    <div class="total mb-2 text-gray-600 flex justify-around w-full font-semibold"></div>
-    <div class=" bg-gray-100 text-gray-600 p-4 flex justify-around text-2xl w-3/4" id="details">
-      <p>Product Name</p>
-      <p>Product Price</p>
-      <p></p>
+
+    <div class="toast" id="toast">
+      <i class="fa-regular fa-circle-question"></i>
+      <p>Please Register Before Entering</p>
+      <button class="cls-btn" id="cls-btn">&#10005;</button>
     </div>
-    <div class="list bg-gray-100 p-6 rounded-b w-3/4" id="list"></div>
-  </div>
 
-  <div class="toast" id="toast">
-    <i class="fa-regular fa-circle-question"></i>
-    <p>Please Register Before Entering</p>
-    <button class="cls-btn" id="cls-btn">&#10005;</button>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
