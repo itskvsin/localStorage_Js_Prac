@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Form</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/js-toast-notifier@latest/dist/toast.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/js-toast-notifier@latest/dist/index.umd.js"></script>
   </head>
   <body class="bg-purple-500 flex items-center justify-center min-h-screen">
     <form
@@ -100,7 +105,18 @@
     </form>
 
     <script>
-      //Register From Script file
+      const toastShow = new ToastNotifier({
+        position: "top-center",
+        timeout: 3000,
+        theme: "light",
+        showCloseButton: false,
+        pauseOnHover: false,
+        showProgress: true,
+        progressHeight: "4px",
+        progressColor: "#fff",
+        progressBackground: "rgba(255, 255, 255, 0.2)",
+        customContainerClass: "class1 class2",
+      });
       document
         .getElementById("registerForm")
         .addEventListener("submit", (event) => {
@@ -112,7 +128,8 @@
             document.getElementById("confirm-password").value;
 
           if (password != confirmPassword) {
-            alert("password is not matching");
+            // alert("password is not matching");
+            toastShow.error("Password Is Not Matching")
             return;
           }
           const user = {
@@ -122,8 +139,11 @@
           };
 
           localStorage.setItem(username, JSON.stringify(user));
-          alert("User registration successfull");
-          window.location.href = "login.html";
+          // alert("User registration successfull");
+          toastShow.success("Resitration Successfull")
+          setTimeout(() => {
+            window.location.href = "login.html";
+          }, 2000);
         });
     </script>
   </body>
