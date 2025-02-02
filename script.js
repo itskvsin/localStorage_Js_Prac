@@ -1,43 +1,39 @@
-let user = JSON.parse(localStorage.getItem("user"))
-let toast = document.getElementById("toast")
-let toastEnterData = document.getElementById("toast-enter")
+let user = JSON.parse(localStorage.getItem("user"));
 
-function addProdPrice(){
-  toastEnterData.classList.add("toast-enter-active")
-
-  setTimeout(() => {
-    toastEnterData.classList.remove("toast-enter-active")
-  },3000)
-
-}
+const toastShow = new ToastNotifier({
+  position: "top-center",
+  timeout: 2000,
+  theme: "light",
+  showCloseButton: true,
+  pauseOnHover: false,
+  showProgress: true,
+  progressHeight: "4px",
+  progressColor: "#fff",
+  progressBackground: "rgba(255, 255, 255, 0.2)",
+  customContainerClass: "class1 class2",
+});
 
 if (!user) {
-  toast.classList.add("toast-active")
-
+  toastShow.warning("Please register / login");
   setTimeout(() => {
-    toast.classList.remove("toast-active")
     window.location.href = "register.html";
-  }, 4000)
-  
-  document.getElementById("cls-btn").addEventListener("click", () => {
-    toast.classList.remove("toast-active")
-  })
+  }, 3000);
 }
 
 let form = document.querySelector("form");
 let show = document.getElementById("list");
 
 form.addEventListener("submit", (elem) => {
-  elem.preventDefault()
+  elem.preventDefault();
   let productName = elem.target.product.value;
   let productPrice = elem.target.price.value;
   let checkStatus = 0;
 
   if (productName === "" || productPrice === "") {
-    addProdPrice()
+    toastShow.info("Enter Product Name / Product Price");
     return;
   }
-  
+
   let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
   for (let check of userData) {
     if (check.productName == productName) {
@@ -47,7 +43,7 @@ form.addEventListener("submit", (elem) => {
   }
 
   if (checkStatus == 1) {
-    alert("Product Name already exists");
+    toastShow.info("Product name already exists");
   } else {
     userData.push({
       productName: productName,
@@ -55,8 +51,8 @@ form.addEventListener("submit", (elem) => {
     });
 
     localStorage.setItem("userDetails", JSON.stringify(userData));
-    displayData()
-    calTotal()
+    displayData();
+    calTotal();
   }
 
   elem.target.product.value = "";
@@ -114,7 +110,7 @@ let update = (index) => {
   const priceInput = document.getElementById("updatePrice");
 
   if (!nameInput || !priceInput) {
-    alert("Enable to find the input fields");
+    toastShow.warning("Unable to find the input fields");
     return;
   }
 
@@ -122,7 +118,7 @@ let update = (index) => {
   let updatedPrice = priceInput.value;
 
   if (updatedName === "" || updatedPrice === "") {
-    alert("Please enter valid details");
+    toastShow.error("Please enter valid details");
     return;
   }
 
@@ -149,7 +145,7 @@ let remove = (button, index) => {
 
   if (removeProduct) {
     removeProduct.remove();
-    alert("Item Deleted");
+    toastShow.success("Item Deleted");
   }
   calTotal();
 };
@@ -167,10 +163,17 @@ let calTotal = () => {
   <p class="price text-2xl text-gray-700 ">${total}</p>`;
 };
 
-function reset(){
-  localStorage.removeItem("userDetails")
-  displayData()
-  calTotal()
+function reset() {
+  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+
+  if (userData == "") {
+    toastShow.info("Is Already Empty");
+    return;
+  }
+  localStorage.removeItem("userDetails");
+  displayData();
+  calTotal();
+  toastShow.success("All Products Cleared");
 }
 
 displayData();

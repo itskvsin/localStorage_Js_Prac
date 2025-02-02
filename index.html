@@ -13,8 +13,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-  </head>
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/js-toast-notifier@latest/dist/toast.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/js-toast-notifier@latest/dist/index.umd.js"></script>
+  </head>
   <body>
     <div
       class="main h-full w-screen flex flex-col items-center justify-start p-4"
@@ -55,21 +60,9 @@
       </div>
       <div class="list bg-gray-100 p-6 rounded-b-3xl w-2/4" id="list"></div>
 
-      <div class="reset bg-gray-800 mt-8 py-3 px-7 rounded-xl text-xl ">
+      <div class="reset bg-gray-800 mt-8 py-3 px-7 rounded-xl text-xl">
         <button type="submit" onclick="reset()">Reset</button>
       </div>
-
-    </div>
-
-    <div class="toast" id="toast">
-      <i class="fa-regular fa-circle-question"></i>
-      <p>Please Register Before Entering</p>
-      <button class="cls-btn" id="cls-btn">&#10008;</button>
-    </div>
-
-    <div class="toast-enter rounded-xl" id="toast-enter">
-      <i class="fa-regular fa-circle-question"></i>
-      <p>Enter Product / Price</p>
     </div>
 
     <script src="script.js"></script>

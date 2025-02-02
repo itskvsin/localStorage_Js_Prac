@@ -19,13 +19,17 @@ body {
   overflow: hidden;
 }
 
-.main{
+.main {
   height: 100vh;
-  background: rgb(255,255,255);
-  background: linear-gradient(153deg, rgb(222, 222, 222) 44%, rgba(176,172,172,1) 100%);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    153deg,
+    rgb(222, 222, 222) 44%,
+    rgba(176, 172, 172, 1) 100%
+  );
 }
 
-input:focus{
+input:focus {
   scale: 1.04;
   transition: all 0.25s;
 }
@@ -38,38 +42,38 @@ input:focus{
   scroll-behavior: auto;
 }
 
-.btn:hover{
+.btn:hover {
   scale: 1.1;
   transition: all 0.44s;
 }
 
-.btn:active{
+.btn:active {
   scale: 0.9;
-  transition: all 0.20s;
+  transition: all 0.2s;
 }
 
-.reset:hover{
+.reset:hover {
   scale: 1.1;
-  transition: all 0.10s;
+  transition: all 0.1s;
 }
 
-.reset:active{
+.reset:active {
   scale: 0.9;
-  transition: all 0.20s;
+  transition: all 0.2s;
 }
 
-@media screen and (max-width:952px){
-  .main{
+@media screen and (max-width: 952px) {
+  .main {
     padding: 0;
   }
-  #body{
+  #body {
     display: flex;
     flex-direction: column;
     gap: 4px;
     width: 99vw;
     font-size: medium;
   }
-  #details{
+  #details {
     width: 100%;
     font-size: large;
     display: flex;
@@ -77,74 +81,18 @@ input:focus{
     justify-items: start;
     padding-left: 4px;
   }
-  #list{
+  #list {
     width: 100%;
     height: 40vh;
     padding: 8px;
-    font-size:1rem;
+    font-size: 1rem;
   }
-  .responsiveBox{
+  .responsiveBox {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
-  .show{
+  .show {
     word-wrap: break-word;
   }
-}
-
-.toast{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: black;
-  color: white;
-  border-radius: 14px;
-  width: 350px;
-  height: 60px;
-  padding: 1rem 1rem;
-  gap:20px;
-  font-size: large;
-  position: absolute;
-  top: 50px;
-  right: -1px;
-  border-bottom: 4px solid rgb(43, 0, 255);
-  border-left: 4px solid rgb(43, 0, 255);
-  opacity: 0;
-  transition: all 0.75s ease-in-out;
-}
-
-/* Add Animations */
-
-.toast-active {
-  right:50px;
-  opacity: 100%;
-}
-
-
-.cls-btn {
-  background-color: black;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.toast-enter{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: gray;
-  position: absolute;
-  top: -1px;
-  right:48%;
-  gap: 14px;
-  padding: 13px 10px;
-  color:blanchedalmond;
-  opacity: 0;
-  transition: all 0.45s ease-in;
-}
-
-.toast-enter-active{
-  opacity: 1;
-  top: 20px;
 }
